@@ -1,47 +1,17 @@
 import React from "react";
-import "@awsui/global-styles/index.css";
-import { Link } from "@awsui/components-react";
+import { Button, SideNavigation } from "@awsui/components-react";
+import { menuItems } from "../helpers/constants";
+
 
 
 const MenuLateral = () => {
   return (
     <div className="">
-      <ul>
-        <li>
-          <Link href="#">
-            <p className="">Plantilla tarjetas</p>
-          </Link>
-        </li>
-        <ul>
-          <li>
-            <Link href="#">
-              <p className="">Lista de plantillas</p>
-            </Link>
-          </li>
-          <li>
-            <Link href="#">
-              <p className="">crear plantilla</p>
-            </Link>
-          </li>
-        </ul>
-        <li>
-          <Link href="#">
-            <p className="">Plantilla Extension</p>
-          </Link>
-        </li>
-        <ul>
-          <li>
-            <Link href="#">
-              <p className="">Lista de plantillas</p>
-            </Link>
-          </li>
-          <li>
-            <Link href="#">
-              <p className=""> crear plantilla</p>
-            </Link>
-          </li>
-        </ul>
-      </ul>
+      <SideNavigation activeHref="repositories" items={menuItems} header={{text: "CodeCommit", href: ""}} />
+      <div className="menuButtons">
+        <Button className="menuButton" iconName="search" >Go to resource</Button>
+        <Button className="menuButton" iconName="envelope" >Feedback</Button>
+      </div>
     </div>
   );
 };
