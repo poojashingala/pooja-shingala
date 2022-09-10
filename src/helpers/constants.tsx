@@ -1,96 +1,63 @@
-
-export const  tableItems = [
-    {
-      name: "Item 1",
-      alt: "First",
-      description: "This is the first item",
-      type: "1A",
-      size: "Small"
-    },
-    {
-      name: "Item 2",
-      alt: "Second",
-      description: "This is the second item",
-      type: "1B",
-      size: "Large"
-    },
-    {
-      name: "Item 3",
-      alt: "Third",
-      description: "-",
-      type: "1A",
-      size: "Large"
-    },
-    {
-      name: "Item 4",
-      alt: "Fourth",
-      description: "This is the fourth item",
-      type: "2A",
-      size: "Small"
-    },
-    {
-      name: "Item 5",
-      alt: "-",
-      description:
-        "This is the fifth item with a longer description",
-      type: "2A",
-      size: "Large"
-    },
-    {
-      name: "Item 6",
-      alt: "Sixth",
-      description: "This is the sixth item",
-      type: "1A",
-      size: "Small"
-    }
-];
-
+import { BiCopy } from "react-icons/bi";
 
 export const columnDefinitions = [
-    {
-      id: "name",
-      header: "Name",
-      cell: (e: any) => e.name,
-      width: 170,
-      minWidth: 165,
-      sortingField: "name"
+  {
+    id: "name",
+    header: "Name",
+    cell: (e:any ) => {
+      return(
+        <div className="color-blue">{e.name}</div>
+      )
     },
-    {
-      id: "description",
-      header: "Description",
-      cell: (e: any) => e.description,
-      width: 110,
-      minWidth: 110,
-    },
-    {
-      id: "date",
-      header: "Last Modified",
-      cell: (e: any) => e.date,
-      width: 200,
-      minWidth: 170
-    }
+    sortingField: "name",
+    width: '30%'
+  },
+  {
+    id: "description",
+    header: "Description",
+    cell: (e:any) => e.description,
+    width: '40%'
+  },
+  { id: "last-modified", header: "Last Modified", cell: (e:any) => e['last-modified'], width: '40%' },
+  {
+    id: "clone-url",
+    header: "Clone URL",
+    cell: (e:any) => {
+    return(
+      <div className="flex color-blue links">
+        <a className="mr-12" href={e.https}><BiCopy />HTTPS</a>
+        <a className="mr-12" href={e.ssh}><BiCopy />SSH</a>
+        <a className="mr-12" href={e.httpsgrc}><BiCopy />HTTPS(GRC)</a>
+      </div>
+    )},
+    width: '20%'
+  }
 ];
 
 export const allItems = [
     {
       name: "readydoc-ui",
-      description: "-",
-      date: "14 hours ago",
+      'description': "-",
+      'last-modified': "14 hours ago",
+      'clone-url' : {https: '#', ssh: '#', httpsgrc: '#'}, 
     },
     {
       name: "readydoc-api",
-      description: "-",
-      date: "15 hours ago",
+      'description': "-",
+      'last-modified': "15 hours ago",
+      'clone-url' : {https: '#', ssh: '#', httpsgrc: '#'}, 
     },
     {
       name: "digitalform-api",
-      description: "-",
-      date: "3 days ago",
+      'description': "-",
+      'last-modified': "3 days ago",
+      'clone-url' : {https: '#', ssh: '#', httpsgrc: '#'}, 
     },
     {
       name: "digitalform-ui",
-      description: "-",
-      date: "6 days ago",
+      'description': "-",
+      'last-modified': "6 days ago",
+      'clone-url' : {https: '#', ssh: '#', httpsgrc: '#'}, 
     },
     
     
@@ -105,70 +72,69 @@ export const allItems = [
 
   export const menuItems: any = [
     {
-        text: "Source . CodeCommit",
+        text: "Source • CodeCommit",
         type: "expandable-link-group",
-        href: "/",
+        href: "#",
         defaultExpanded: true,
         items: [
           {
             text: "Getting Started",
             type: "link",
-            href: "/"
+            href: "#",
           },
           {
             text: "Repositories",
             type: "link",
-            href: "/repositories"
+            href: "/"
           },
           {
             text: "Approval rule template",
             type: "link",
-            href: "/"
+            href: "#",
           },
         ]
     }, 
     {
-        text: "Artifacts . CodeArtifacts",
+        text: "Artifacts • CodeArtifacts",
         type: "expandable-link-group",
-        href: "/",
+        href: "#",
         items: []
     }, 
     
     {
-        text: "Build . CodeBuild",
+        text: "Build • CodeBuild",
         type: "expandable-link-group",
-        href: "/",
+        href: "#",
         items: []
     },
     {
-        text: "Deploy . CodeDeploy",
+        text: "Deploy • CodeDeploy",
         type: "expandable-link-group",
-        href: "/",
+        href: "#",
         items: []
     },
     {
-        text: "Pipeline . CodePipeline",
+        text: "Pipeline • CodePipeline",
         type: "expandable-link-group",
-        href: "/",
+        href: "#",
         items: []
     },
     {
         text: "Settings",
         type: "expandable-link-group",
-        href: "/",
+        href: "#",
         items: []
     },
-   
-    /* {type: 'section', text: 'Source . CodeCommit', defaultExpanded: true, items: [
-        {type: 'link', text: 'Getting Started', href: '/', },
-        {type: 'link', text: 'Repositories', href: '/'},
-        {type: 'link', text: 'Getting Started', href: '/'},
-    ]}, */
-    /* {type: 'section', text: 'Artifacts . CodeArtifact', defaultExpanded: false }, */
-    /* {type: 'section', text: 'Build . CodeBuild', defaultExpanded: false },
-    {type: 'section', text: 'Deploy . CodeDeploy', defaultExpanded: false },
-    {type: 'section', text: 'Pipeline . CodePipeline', defaultExpanded: false },
-    {type: 'section', text: 'Settings', defaultExpanded: false },
-    {type: 'link-group', text: 'Go to resource', href: '/'},
-    {type: 'link-group', text: 'Feedback', href: '/'}, */
   ]
+
+export const ChevronDown = () => {
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path className="filled stroke-linejoin-round" d="M4 5h8l-4 6-4-6z"></path></svg>
+  )
+}
+
+export const breadcrumbs = [
+  {text: "Developer Tools", href:"/"}, 
+  {text: "CodeCommit", href:"/"},
+  {text: "Repositories", href:"/"}
+]
